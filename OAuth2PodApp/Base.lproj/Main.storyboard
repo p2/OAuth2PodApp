@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="OAuth2PodApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bd-36-9L0">
+                                <rect key="frame" x="274" y="284" width="52" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ROe-MX-oJJ"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hP-Ed-gOm">
+                                <rect key="frame" x="249" y="366" width="103" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <state key="normal" title="Forget Tokens">
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgetTokens:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AoH-5b-b0l"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pxq-nW-pSm">
+                                <rect key="frame" x="236" y="106" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="128" id="k6g-5G-NTg"/>
+                                    <constraint firstAttribute="height" constant="128" id="w5t-qL-OP8"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="4bd-36-9L0" secondAttribute="centerX" id="BcZ-rI-Q4n"/>
+                            <constraint firstAttribute="centerX" secondItem="9hP-Ed-gOm" secondAttribute="centerX" id="Mpn-tf-WP7"/>
+                            <constraint firstAttribute="centerX" secondItem="pxq-nW-pSm" secondAttribute="centerX" id="SPc-vT-3vX"/>
+                            <constraint firstAttribute="centerY" secondItem="4bd-36-9L0" secondAttribute="centerY" id="Tk3-7A-eAT"/>
+                            <constraint firstItem="9hP-Ed-gOm" firstAttribute="top" secondItem="4bd-36-9L0" secondAttribute="bottom" constant="50" id="Y0F-sA-9wo"/>
+                            <constraint firstItem="4bd-36-9L0" firstAttribute="top" secondItem="pxq-nW-pSm" secondAttribute="bottom" constant="50" id="jDg-Ix-Fbx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="forgetButton" destination="9hP-Ed-gOm" id="cfr-su-MBf"/>
+                        <outlet property="imageView" destination="pxq-nW-pSm" id="nUt-cd-zEf"/>
+                        <outlet property="signInButton" destination="4bd-36-9L0" id="spM-i6-q0p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
