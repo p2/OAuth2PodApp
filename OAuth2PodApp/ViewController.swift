@@ -24,10 +24,23 @@ class ViewController: UIViewController
 	])
 	
 	@IBOutlet var imageView: UIImageView?
-	@IBOutlet var signInButton: UIButton?
+	@IBOutlet var signInEmbeddedButton: UIButton?
+	@IBOutlet var signInSafariButton: UIButton?
 	@IBOutlet var forgetButton: UIButton?
 	
-	@IBAction func signIn(sender: UIButton?) {
+	@IBAction func signInEmbedded(sender: UIButton?) {
+		oauth2.authConfig.authorizeEmbedded = true
+		signIn(sender)
+	}
+	
+	@IBAction func signInSafari(sender: UIButton?) {
+		oauth2.authConfig.authorizeEmbedded = false
+		signIn(sender)
+	}
+	
+	func signIn(sender: UIButton?) {
+		sender?.setTitle("Authorizing...", forState: .Normal)
+		
 		oauth2.viewTitle = "GitHub"
 		oauth2.onAuthorize = { parameters in
 			self.didAuthorizeWith(parameters)
@@ -35,18 +48,14 @@ class ViewController: UIViewController
 		oauth2.onFailure = { error in
 			self.didCancelOrFail(error)
 		}
-		
-		// change the following line to: "true" for built-in web view, "false" for Safari
-		oauth2.authConfig.authorizeEmbedded = false
 		oauth2.authConfig.authorizeContext = self
 		oauth2.authorize()
 	}
 	
 	@IBAction func forgetTokens(sender: UIButton?) {
-		signInButton?.setTitle("Sign In", forState: .Normal)
 		imageView?.hidden = true
-		forgetButton?.hidden = true
 		oauth2.forgetTokens()
+		resetButtons()
 	}
 	
 	
@@ -54,20 +63,25 @@ class ViewController: UIViewController
 	
 	func didAuthorizeWith(parameters: OAuth2JSON) {
 		println("Did authorize with parameters: \(parameters)")
-		forgetButton?.hidden = false
 		
 		requestUserdata { dict, error in
 			if let error = error {
 				println("Fetching user data failed: \(error.localizedDescription)")
+				self.resetButtons()
 			}
 			else {
 				println("Fetched user data: \(dict)")
 				if let username = dict?["name"] as? String {
-					self.signInButton?.setTitle(username, forState: .Normal)
+					self.signInEmbeddedButton?.setTitle(username, forState: .Normal)
+				}
+				else {
+					self.signInEmbeddedButton?.setTitle("(No name found)", forState: .Normal)
 				}
 				if let imgURL = dict?["avatar_url"] as? String, let url = NSURL(string: imgURL) {
 					self.loadAvatar(url)
 				}
+				self.signInSafariButton?.hidden = true
+				self.forgetButton?.hidden = false
 			}
 		}
 	}
@@ -76,7 +90,20 @@ class ViewController: UIViewController
 		if nil != error {
 			println("Authorization went wrong: \(error!.localizedDescription)")
 		}
+		resetButtons()
 	}
+	
+	func resetButtons() {
+		signInEmbeddedButton?.setTitle("Sign In (Embedded)", forState: .Normal)
+		signInEmbeddedButton?.enabled = true
+		signInSafariButton?.setTitle("Sign In (Safari)", forState: .Normal)
+		signInSafariButton?.enabled = true
+		signInSafariButton?.hidden = false
+		forgetButton?.hidden = true
+	}
+	
+	
+	// MARK: - Requests
 	
 	func requestUserdata(callback: ((dict: NSDictionary?, error: NSError?) -> Void)) {
 		requestJSON("user", callback: callback)

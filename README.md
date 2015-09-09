@@ -2,7 +2,7 @@ OAuth2 iOS Test App
 ===================
 
 This is an [OAuth2 framework][oauth2] sample app running on iPhone.
-It uses [Cocoapods][] to install the framework, currently version 1.2.6.
+It uses [Cocoapods][] to install the framework, currently version 1.2.x.
 There also is an [OS X Test App][osx] that does not use CocoaPods.
 
 This example app has you log in to GitHub and then fetches your username and avatar.
@@ -13,9 +13,8 @@ This example app has you log in to GitHub and then fetches your username and ava
 
 ### Embedded vs. Native
 
-For user sign in you can have the app show a built-in web view controller or redirect to Safari.
-For the latter an app needs to register a URL handler and implement the `application:openURL:sourceApplication:annotation:` method to intercept the callback.
-This is already built in, to switch between embedded and native change `oauth2.authConfig.authorizeEmbedded` in _ViewController.swift_ line ~40.
+There are two buttons, one to login using a built-in web view controller and one to open Safari for login.
+This is achieved by setting `oauth2.authConfig.authorizeEmbedded` to either _true_ or _false_.
 
 
 ### Installation

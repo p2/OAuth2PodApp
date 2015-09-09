@@ -2,5 +2,5 @@ Pods
 Podfile.lock
 
 **.xcuserdatad
-
+**.xccheckout
 
