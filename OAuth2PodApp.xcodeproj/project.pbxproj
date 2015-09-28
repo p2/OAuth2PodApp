@@ -183,6 +183,8 @@
 		EE19A6911B4A569B00A406FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Ossus;
 				TargetAttributes = {

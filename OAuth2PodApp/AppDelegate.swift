@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
 		return true
 	}
 	
-	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+	func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 		if "ppoauthapp" == url.scheme {
 			if let vc = window?.rootViewController as? ViewController {
 				vc.oauth2.handleRedirectURL(url)

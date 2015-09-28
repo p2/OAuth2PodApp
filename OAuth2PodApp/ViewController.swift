@@ -12,7 +12,7 @@ import p2_OAuth2
 
 class ViewController: UIViewController
 {
-	lazy var oauth2 = OAuth2CodeGrant(settings: [
+	var oauth2 = OAuth2CodeGrant(settings: [
 		"client_id": "8ae913c685556e73a16f",                         // yes, this client-id and secret will work!
 		"client_secret": "60d81efcc5293fd1d096854f4eee0764edb2da5d",
 		"authorize_uri": "https://github.com/login/oauth/authorize",
@@ -21,7 +21,7 @@ class ViewController: UIViewController
 		"redirect_uris": ["ppoauthapp://oauth/callback"],            // app has registered this scheme
 		"secret_in_body": true,                                      // GitHub does not accept client secret in the Authorization header
 		"verbose": true,
-	])
+	] as OAuth2JSON)
 	
 	@IBOutlet var imageView: UIImageView?
 	@IBOutlet var signInEmbeddedButton: UIButton?
@@ -41,7 +41,6 @@ class ViewController: UIViewController
 	func signIn(sender: UIButton?) {
 		sender?.setTitle("Authorizing...", forState: .Normal)
 		
-		oauth2.viewTitle = "GitHub"
 		oauth2.onAuthorize = { parameters in
 			self.didAuthorizeWith(parameters)
 		}
@@ -62,15 +61,15 @@ class ViewController: UIViewController
 	// MARK: - Actions
 	
 	func didAuthorizeWith(parameters: OAuth2JSON) {
-		println("Did authorize with parameters: \(parameters)")
+		print("Did authorize with parameters: \(parameters)")
 		
 		requestUserdata { dict, error in
 			if let error = error {
-				println("Fetching user data failed: \(error.localizedDescription)")
+				print("Fetching user data failed: \(error.localizedDescription)")
 				self.resetButtons()
 			}
 			else {
-				println("Fetched user data: \(dict)")
+				print("Fetched user data: \(dict)")
 				if let username = dict?["name"] as? String {
 					self.signInEmbeddedButton?.setTitle(username, forState: .Normal)
 				}
@@ -88,7 +87,7 @@ class ViewController: UIViewController
 	
 	func didCancelOrFail(error: NSError?) {
 		if nil != error {
-			println("Authorization went wrong: \(error!.localizedDescription)")
+			print("Authorization went wrong: \(error!.localizedDescription)")
 		}
 		resetButtons()
 	}
@@ -117,7 +116,7 @@ class ViewController: UIViewController
 					self.imageView?.hidden = false
 				}
 				else {
-					println("Failed to load avatar: \(error?.localizedDescription)")
+					print("Failed to load avatar: \(error?.localizedDescription)")
 				}
 			}
 		}
@@ -129,10 +128,16 @@ class ViewController: UIViewController
 		
 		request(baseURL.URLByAppendingPathComponent(path)) { data, error in
 			if let data = data {
-				var err: NSError?
-				let dict = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as? NSDictionary
-				dispatch_async(dispatch_get_main_queue()) {
-					callback(dict: dict, error: err)
+				do {
+					let dict = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
+					dispatch_async(dispatch_get_main_queue()) {
+						callback(dict: dict, error: nil)
+					}
+				}
+				catch let err {
+					dispatch_async(dispatch_get_main_queue()) {
+						callback(dict: nil, error: err as NSError)
+					}
 				}
 			}
 			else {

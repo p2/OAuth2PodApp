@@ -3,7 +3,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'OAuth2PodApp' do
-	pod 'p2.OAuth2', '~> 1.2'
+	pod 'p2.OAuth2', '~> 2.0'
 end
 
 target 'OAuth2PodAppTests' do
