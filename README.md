@@ -2,7 +2,7 @@ OAuth2 iOS Test App
 ===================
 
 This is an [OAuth2 framework][oauth2] sample app running on iPhone.
-It uses [Cocoapods][] to install the framework, currently version 1.2.x.
+It uses [Cocoapods][] to install the framework, currently version 2.1.
 There also is an [OS X Test App][osx] that does not use CocoaPods.
 
 This example app has you log in to GitHub and then fetches your username and avatar.

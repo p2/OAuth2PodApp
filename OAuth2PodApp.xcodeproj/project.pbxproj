@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C04CF4D4D83EFD3F72E0E5E9 /* Pods_OAuth2PodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A980520379CE17E1076051 /* Pods_OAuth2PodApp.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C04CF4D4D83EFD3F72E0E5E9 /* Pods_OAuth2PodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76A980520379CE17E1076051 /* Pods_OAuth2PodApp.framework */; };
 		EE19A69F1B4A569B00A406FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19A69E1B4A569B00A406FD /* AppDelegate.swift */; };
 		EE19A6A11B4A569B00A406FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19A6A01B4A569B00A406FD /* ViewController.swift */; };
 		EE19A6A41B4A569B00A406FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE19A6A21B4A569B00A406FD /* Main.storyboard */; };
@@ -40,6 +40,7 @@
 		EE19A6AE1B4A569B00A406FD /* OAuth2PodAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuth2PodAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE19A6B31B4A569B00A406FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE19A6B41B4A569B00A406FD /* OAuth2PodAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2PodAppTests.swift; sourceTree = "<group>"; };
+		EE8BF6A71C0FA31A00394700 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		EE19A69B1B4A569B00A406FD /* OAuth2PodApp */ = {
 			isa = PBXGroup;
 			children = (
+				EE8BF6A71C0FA31A00394700 /* Podfile */,
 				EE19A69E1B4A569B00A406FD /* AppDelegate.swift */,
 				EE19A6A01B4A569B00A406FD /* ViewController.swift */,
 				EE19A6A21B4A569B00A406FD /* Main.storyboard */,
@@ -185,7 +187,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = Ossus;
 				TargetAttributes = {
 					EE19A6981B4A569B00A406FD = {
@@ -353,6 +355,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -420,6 +423,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OAuth2PodApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -431,6 +435,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OAuth2PodApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -449,6 +454,7 @@
 				);
 				INFOPLIST_FILE = OAuth2PodAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuth2PodApp.app/OAuth2PodApp";
 			};
@@ -464,6 +470,7 @@
 				);
 				INFOPLIST_FILE = OAuth2PodAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuth2PodApp.app/OAuth2PodApp";
 			};

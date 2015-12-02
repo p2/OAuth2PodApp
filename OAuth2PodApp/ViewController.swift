@@ -65,7 +65,7 @@ class ViewController: UIViewController
 		
 		requestUserdata { dict, error in
 			if let error = error {
-				print("Fetching user data failed: \(error.localizedDescription)")
+				print("Fetching user data failed: \(error)")
 				self.resetButtons()
 			}
 			else {
@@ -85,9 +85,9 @@ class ViewController: UIViewController
 		}
 	}
 	
-	func didCancelOrFail(error: NSError?) {
-		if nil != error {
-			print("Authorization went wrong: \(error!.localizedDescription)")
+	func didCancelOrFail(error: ErrorType?) {
+		if let error = error {
+			print("Authorization went wrong: \(error)")
 		}
 		resetButtons()
 	}
@@ -104,7 +104,7 @@ class ViewController: UIViewController
 	
 	// MARK: - Requests
 	
-	func requestUserdata(callback: ((dict: NSDictionary?, error: NSError?) -> Void)) {
+	func requestUserdata(callback: ((dict: NSDictionary?, error: ErrorType?) -> Void)) {
 		requestJSON("user", callback: callback)
 	}
 	
@@ -115,15 +115,15 @@ class ViewController: UIViewController
 					self.imageView?.image = UIImage(data: data)
 					self.imageView?.hidden = false
 				}
-				else {
-					print("Failed to load avatar: \(error?.localizedDescription)")
+				else if let error = error {
+					print("Failed to load avatar: \(error)")
 				}
 			}
 		}
 	}
 	
 	/** Perform a request against the GitHub API and return decoded JSON or an NSError. */
-	func requestJSON(path: String, callback: ((dict: NSDictionary?, error: NSError?) -> Void)) {
+	func requestJSON(path: String, callback: ((dict: NSDictionary?, error: ErrorType?) -> Void)) {
 		let baseURL = NSURL(string: "https://api.github.com")!
 		
 		request(baseURL.URLByAppendingPathComponent(path)) { data, error in
@@ -136,7 +136,7 @@ class ViewController: UIViewController
 				}
 				catch let err {
 					dispatch_async(dispatch_get_main_queue()) {
-						callback(dict: nil, error: err as NSError)
+						callback(dict: nil, error: err)
 					}
 				}
 			}
@@ -148,7 +148,7 @@ class ViewController: UIViewController
 		}
 	}
 	
-	func request(url: NSURL, callback: ((data: NSData?, error: NSError?) -> Void)) {
+	func request(url: NSURL, callback: ((data: NSData?, error: ErrorType?) -> Void)) {
 		let req = oauth2.request(forURL: url)
 		req.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
 		
