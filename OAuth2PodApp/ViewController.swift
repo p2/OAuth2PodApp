@@ -10,8 +10,10 @@ import UIKit
 import p2_OAuth2
 
 
-class ViewController: UIViewController
-{
+class ViewController: UIViewController {
+	
+	private var authorizing = false
+	
 	var oauth2 = OAuth2CodeGrant(settings: [
 		"client_id": "8ae913c685556e73a16f",                         // yes, this client-id and secret will work!
 		"client_secret": "60d81efcc5293fd1d096854f4eee0764edb2da5d",
@@ -28,26 +30,37 @@ class ViewController: UIViewController
 	@IBOutlet var signInSafariButton: UIButton?
 	@IBOutlet var forgetButton: UIButton?
 	
-	@IBAction func signInEmbedded(sender: UIButton?) {
-		oauth2.authConfig.authorizeEmbedded = true
-		signIn(sender)
-	}
-	
-	@IBAction func signInSafari(sender: UIButton?) {
-		oauth2.authConfig.authorizeEmbedded = false
-		signIn(sender)
-	}
-	
-	func signIn(sender: UIButton?) {
-		sender?.setTitle("Authorizing...", forState: .Normal)
-		
+	func setupOAuth2() {
 		oauth2.onAuthorize = { parameters in
 			self.didAuthorizeWith(parameters)
 		}
 		oauth2.onFailure = { error in
 			self.didCancelOrFail(error)
 		}
-		oauth2.authConfig.authorizeContext = self
+	}
+	
+	@IBAction func signInEmbedded(sender: UIButton?) {
+		if authorizing {
+			oauth2.abortAuthorization()
+			return
+		}
+		
+		sender?.setTitle("Authorizing...", forState: .Normal)
+		setupOAuth2()
+		authorizing = true
+		oauth2.authorizeEmbeddedFrom(self)
+	}
+	
+	@IBAction func signInSafari(sender: UIButton?) {
+		if authorizing {
+			oauth2.abortAuthorization()
+			return
+		}
+		
+		sender?.setTitle("Authorizing...", forState: .Normal)
+		setupOAuth2()
+		authorizing = true
+		oauth2.authConfig.authorizeEmbedded = false
 		oauth2.authorize()
 	}
 	
@@ -89,6 +102,7 @@ class ViewController: UIViewController
 		if let error = error {
 			print("Authorization went wrong: \(error)")
 		}
+		authorizing = false
 		resetButtons()
 	}
 	
