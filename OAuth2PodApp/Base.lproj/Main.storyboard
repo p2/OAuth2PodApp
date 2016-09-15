@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,68 +14,79 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bd-36-9L0">
-                                <rect key="frame" x="226" y="284" width="149" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Sign In (Embedded)">
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <state key="disabled">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="signInEmbedded:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="d7p-xY-lYA"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hP-Ed-gOm">
-                                <rect key="frame" x="249" y="372" width="103" height="32"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hP-Ed-gOm">
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Forget Tokens">
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="forgetTokens:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="AoH-5b-b0l"/>
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pxq-nW-pSm">
-                                <rect key="frame" x="236" y="106" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="128" id="k6g-5G-NTg"/>
                                     <constraint firstAttribute="height" constant="128" id="w5t-qL-OP8"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ4-8j-5W0">
-                                <rect key="frame" x="244" y="328" width="112" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Sign In (Safari)">
-                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <state key="disabled">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="signInSafari:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZdG-vy-hjl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7la-oi-ioo">
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <state key="normal" title="Auto Sign In">
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="autoSignIn:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PzO-1A-Ui8"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fZ4-8j-5W0" firstAttribute="top" secondItem="4bd-36-9L0" secondAttribute="bottom" constant="12" id="4wM-3Z-Mcf"/>
                             <constraint firstAttribute="centerX" secondItem="4bd-36-9L0" secondAttribute="centerX" id="BcZ-rI-Q4n"/>
+                            <constraint firstItem="7la-oi-ioo" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="MDm-mr-MF8"/>
                             <constraint firstAttribute="centerX" secondItem="9hP-Ed-gOm" secondAttribute="centerX" id="Mpn-tf-WP7"/>
+                            <constraint firstItem="9hP-Ed-gOm" firstAttribute="top" secondItem="7la-oi-ioo" secondAttribute="bottom" constant="30" id="Q6V-zB-od4"/>
                             <constraint firstAttribute="centerX" secondItem="pxq-nW-pSm" secondAttribute="centerX" id="SPc-vT-3vX"/>
                             <constraint firstAttribute="centerY" secondItem="4bd-36-9L0" secondAttribute="centerY" id="Tk3-7A-eAT"/>
-                            <constraint firstItem="9hP-Ed-gOm" firstAttribute="top" secondItem="fZ4-8j-5W0" secondAttribute="bottom" constant="12" id="gIL-u4-mp8"/>
                             <constraint firstItem="4bd-36-9L0" firstAttribute="top" secondItem="pxq-nW-pSm" secondAttribute="bottom" constant="50" id="jDg-Ix-Fbx"/>
+                            <constraint firstItem="7la-oi-ioo" firstAttribute="top" secondItem="fZ4-8j-5W0" secondAttribute="bottom" constant="12" id="uZf-SD-Wzs"/>
                             <constraint firstAttribute="centerX" secondItem="fZ4-8j-5W0" secondAttribute="centerX" id="zUL-0g-A33"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="forgetButton" destination="9hP-Ed-gOm" id="cfr-su-MBf"/>
                         <outlet property="imageView" destination="pxq-nW-pSm" id="nUt-cd-zEf"/>
+                        <outlet property="signInAutoButton" destination="7la-oi-ioo" id="tBJ-aa-oMT"/>
                         <outlet property="signInEmbeddedButton" destination="4bd-36-9L0" id="LXq-QK-XCV"/>
                         <outlet property="signInSafariButton" destination="fZ4-8j-5W0" id="Fg2-mh-TDU"/>
                     </connections>

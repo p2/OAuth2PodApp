@@ -8,11 +8,12 @@
 
 import UIKit
 import p2_OAuth2
+import Alamofire
 
 
 class ViewController: UIViewController {
 	
-	private var authorizing = false
+	fileprivate var alamofireManager: SessionManager?
 	
 	var oauth2 = OAuth2CodeGrant(settings: [
 		"client_id": "8ae913c685556e73a16f",                         // yes, this client-id and secret will work!
@@ -28,44 +29,84 @@ class ViewController: UIViewController {
 	@IBOutlet var imageView: UIImageView?
 	@IBOutlet var signInEmbeddedButton: UIButton?
 	@IBOutlet var signInSafariButton: UIButton?
+	@IBOutlet var signInAutoButton: UIButton?
 	@IBOutlet var forgetButton: UIButton?
 	
-	func setupOAuth2() {
-		oauth2.onAuthorize = { parameters in
-			self.didAuthorizeWith(parameters)
+	
+	@IBAction func signInEmbedded(_ sender: UIButton?) {
+		if oauth2.isAuthorizing {
+			oauth2.abortAuthorization()
+			return
 		}
-		oauth2.onFailure = { error in
+		
+		sender?.setTitle("Authorizing...", for: UIControlState.normal)
+		
+		oauth2.authConfig.authorizeEmbedded = true
+		oauth2.authConfig.authorizeContext = self
+		let loader = OAuth2DataLoader(oauth2: oauth2)
+		self.loader = loader
+		
+		loader.perform(request: userDataRequest) { response in
+			do {
+				let json = try response.responseJSON()
+				self.didGetUserdata(dict: json, loader: loader)
+			}
+			catch let error {
 			self.didCancelOrFail(error)
 		}
 	}
+	}
 	
-	@IBAction func signInEmbedded(sender: UIButton?) {
-		if authorizing {
+	@IBAction func signInSafari(_ sender: UIButton?) {
+		if oauth2.isAuthorizing {
 			oauth2.abortAuthorization()
 			return
 		}
 		
-		sender?.setTitle("Authorizing...", forState: .Normal)
-		setupOAuth2()
-		authorizing = true
-		oauth2.authorizeEmbeddedFrom(self)
-	}
+		sender?.setTitle("Authorizing...", for: UIControlState.normal)
 	
-	@IBAction func signInSafari(sender: UIButton?) {
-		if authorizing {
-			oauth2.abortAuthorization()
-			return
-		}
+		oauth2.authConfig.authorizeEmbedded = false		// the default
+		let loader = OAuth2DataLoader(oauth2: oauth2)
+		self.loader = loader
 		
-		sender?.setTitle("Authorizing...", forState: .Normal)
-		setupOAuth2()
-		authorizing = true
-		oauth2.authConfig.authorizeEmbedded = false
-		oauth2.authorize()
+		loader.perform(request: userDataRequest) { response in
+			do {
+				let json = try response.responseJSON()
+				self.didGetUserdata(dict: json, loader: loader)
+			}
+			catch let error {
+				self.didCancelOrFail(error)
+			}
+		}
 	}
 	
-	@IBAction func forgetTokens(sender: UIButton?) {
-		imageView?.hidden = true
+	/**
+	This method relies fully on Alamofire and OAuth2RequestRetrier.
+	*/
+	@IBAction func autoSignIn(_ sender: UIButton?) {
+		sender?.setTitle("Loading...", for: UIControlState.normal)
+		let sessionManager = SessionManager()
+		let retrier = OAuth2RetryHandler(oauth2: oauth2)
+		sessionManager.adapter = retrier
+		sessionManager.retrier = retrier
+		alamofireManager = sessionManager
+		
+		sessionManager.request("https://api.github.com/user").validate().responseJSON { response in
+			debugPrint(response)
+			if let dict = response.result.value as? [String: Any] {
+				self.didGetUserdata(dict: dict, loader: nil)
+			}
+			else {
+				self.didCancelOrFail(OAuth2Error.generic("\(response)"))
+			}
+		}
+		sessionManager.request("https://api.github.com/user/repos").validate().responseJSON { response in
+			debugPrint(response)
+		}
+	}
+	
+	@IBAction func forgetTokens(_ sender: UIButton?) {
+		imageView?.isHidden = true
 		oauth2.forgetTokens()
 		resetButtons()
 	}
@@ -73,104 +114,79 @@ class ViewController: UIViewController {
 	
 	// MARK: - Actions
 	
-	func didAuthorizeWith(parameters: OAuth2JSON) {
-		print("Did authorize with parameters: \(parameters)")
-		
-		requestUserdata { dict, error in
-			if let error = error {
-				print("Fetching user data failed: \(error)")
-				self.resetButtons()
+	var userDataRequest: URLRequest {
+		var request = URLRequest(url: URL(string: "https://api.github.com/user")!)
+		request.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
+		return request
 			}
-			else {
-				print("Fetched user data: \(dict)")
-				if let username = dict?["name"] as? String {
-					self.signInEmbeddedButton?.setTitle(username, forState: .Normal)
+	
+	func didGetUserdata(dict: [String: Any], loader: OAuth2DataLoader?) {
+		DispatchQueue.main.async {
+			if let username = dict["name"] as? String {
+				self.signInEmbeddedButton?.setTitle(username, for: UIControlState())
 				}
 				else {
-					self.signInEmbeddedButton?.setTitle("(No name found)", forState: .Normal)
+				self.signInEmbeddedButton?.setTitle("(No name found)", for: UIControlState())
 				}
-				if let imgURL = dict?["avatar_url"] as? String, let url = NSURL(string: imgURL) {
-					self.loadAvatar(url)
-				}
-				self.signInSafariButton?.hidden = true
-				self.forgetButton?.hidden = false
+			if let imgURL = dict["avatar_url"] as? String, let url = URL(string: imgURL) {
+				self.loadAvatar(from: url, with: loader)
 			}
+			self.signInSafariButton?.isHidden = true
+			self.signInAutoButton?.isHidden = true
+			self.forgetButton?.isHidden = false
 		}
 	}
 	
-	func didCancelOrFail(error: ErrorType?) {
+	func didCancelOrFail(_ error: Error?) {
+		DispatchQueue.main.async {
 		if let error = error {
 			print("Authorization went wrong: \(error)")
 		}
-		authorizing = false
-		resetButtons()
-	}
-	
-	func resetButtons() {
-		signInEmbeddedButton?.setTitle("Sign In (Embedded)", forState: .Normal)
-		signInEmbeddedButton?.enabled = true
-		signInSafariButton?.setTitle("Sign In (Safari)", forState: .Normal)
-		signInSafariButton?.enabled = true
-		signInSafariButton?.hidden = false
-		forgetButton?.hidden = true
-	}
-	
-	
-	// MARK: - Requests
-	
-	func requestUserdata(callback: ((dict: NSDictionary?, error: ErrorType?) -> Void)) {
-		requestJSON("user", callback: callback)
-	}
-	
-	func loadAvatar(url: NSURL) {
-		request(url) { data, error in
-			dispatch_async(dispatch_get_main_queue()) {
-				if let data = data {
-					self.imageView?.image = UIImage(data: data)
-					self.imageView?.hidden = false
-				}
-				else if let error = error {
-					print("Failed to load avatar: \(error)")
-				}
-			}
+			self.resetButtons()
 		}
 	}
 	
-	/** Perform a request against the GitHub API and return decoded JSON or an NSError. */
-	func requestJSON(path: String, callback: ((dict: NSDictionary?, error: ErrorType?) -> Void)) {
-		let baseURL = NSURL(string: "https://api.github.com")!
-		
-		request(baseURL.URLByAppendingPathComponent(path)) { data, error in
-			if let data = data {
+	func resetButtons() {
+		signInEmbeddedButton?.setTitle("Sign In (Embedded)", for: UIControlState())
+		signInEmbeddedButton?.isEnabled = true
+		signInSafariButton?.setTitle("Sign In (Safari)", for: UIControlState())
+		signInSafariButton?.isEnabled = true
+		signInSafariButton?.isHidden = false
+		signInAutoButton?.setTitle("Auto Sign In", for: UIControlState())
+		signInAutoButton?.isEnabled = true
+		signInAutoButton?.isHidden = false
+		forgetButton?.isHidden = true
+	}
+	
+	
+	// MARK: - Avatar
+	
+	func loadAvatar(from url: URL, with loader: OAuth2DataLoader?) {
+		if let loader = loader {
+			loader.perform(request: URLRequest(url: url)) { response in
 				do {
-					let dict = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary
-					dispatch_async(dispatch_get_main_queue()) {
-						callback(dict: dict, error: nil)
+					let data = try response.responseData()
+					DispatchQueue.main.async {
+						self.imageView?.image = UIImage(data: data)
+						self.imageView?.isHidden = false
 					}
 				}
-				catch let err {
-					dispatch_async(dispatch_get_main_queue()) {
-						callback(dict: nil, error: err)
+				catch let error {
+					print("Failed to load avatar: \(error)")
 					}
 				}
 			}
 			else {
-				dispatch_async(dispatch_get_main_queue()) {
-					callback(dict: nil, error: error)
-				}
+			alamofireManager?.request(url).validate().responseData() { response in
+				if let data = response.result.value {
+					self.imageView?.image = UIImage(data: data)
+					self.imageView?.isHidden = false
 			}
+				else {
+					print("Failed to load avatar: \(response)")
 		}
 	}
-	
-	func request(url: NSURL, callback: ((data: NSData?, error: ErrorType?) -> Void)) {
-		let req = oauth2.request(forURL: url)
-		req.setValue("application/vnd.github.v3+json", forHTTPHeaderField: "Accept")
-		
-		let session = NSURLSession.sharedSession()
-		let task = session.dataTaskWithRequest(req) { data, response, error in
-			callback(data: nil != error ? nil : data, error: error)
 		}
-		task.resume()
 	}
 }
 
