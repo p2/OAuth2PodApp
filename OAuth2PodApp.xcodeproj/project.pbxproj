@@ -7,31 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C9B7A9099A1384CF8465042E /* Pods_OAuth2PodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 491CC453DFC2EB695715DFE4 /* Pods_OAuth2PodApp.framework */; };
+		117FF70E737AEA8C374E77F4 /* Pods_OAuth2PodApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AF06CF206D06D92395AE25 /* Pods_OAuth2PodApp.framework */; };
 		EE19A69F1B4A569B00A406FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19A69E1B4A569B00A406FD /* AppDelegate.swift */; };
 		EE19A6A11B4A569B00A406FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19A6A01B4A569B00A406FD /* ViewController.swift */; };
 		EE19A6A41B4A569B00A406FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE19A6A21B4A569B00A406FD /* Main.storyboard */; };
 		EE19A6A61B4A569B00A406FD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE19A6A51B4A569B00A406FD /* Images.xcassets */; };
 		EE19A6A91B4A569B00A406FD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE19A6A71B4A569B00A406FD /* LaunchScreen.xib */; };
-		EE19A6B51B4A569B00A406FD /* OAuth2PodAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE19A6B41B4A569B00A406FD /* OAuth2PodAppTests.swift */; };
 		EE407D631D8A8D34001C7B2B /* OAuth2RetryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE407D621D8A8D34001C7B2B /* OAuth2RetryHandler.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		EE19A6AF1B4A569B00A406FD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE19A6911B4A569B00A406FD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EE19A6981B4A569B00A406FD;
-			remoteInfo = OAuth2PodApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		1F86ABA23F347C436EA25FF3 /* Pods-OAuth2PodApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2PodApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2PodApp/Pods-OAuth2PodApp.release.xcconfig"; sourceTree = "<group>"; };
-		491CC453DFC2EB695715DFE4 /* Pods_OAuth2PodApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OAuth2PodApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4CA75B2738619F1E02D977DC /* Pods-OAuth2PodApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2PodApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2PodApp/Pods-OAuth2PodApp.debug.xcconfig"; sourceTree = "<group>"; };
-		910FE77F2152631A4C2C25AD /* Pods_OAuth2PodAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OAuth2PodAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37AF06CF206D06D92395AE25 /* Pods_OAuth2PodApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OAuth2PodApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE0B2FF40E1A06672755E48 /* Pods-OAuth2PodApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2PodApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2PodApp/Pods-OAuth2PodApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DD9BA633ABF221889A7A6600 /* Pods-OAuth2PodApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OAuth2PodApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-OAuth2PodApp/Pods-OAuth2PodApp.release.xcconfig"; sourceTree = "<group>"; };
 		EE19A6991B4A569B00A406FD /* OAuth2PodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OAuth2PodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE19A69D1B4A569B00A406FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE19A69E1B4A569B00A406FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,9 +27,6 @@
 		EE19A6A31B4A569B00A406FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE19A6A51B4A569B00A406FD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EE19A6A81B4A569B00A406FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		EE19A6AE1B4A569B00A406FD /* OAuth2PodAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuth2PodAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE19A6B31B4A569B00A406FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE19A6B41B4A569B00A406FD /* OAuth2PodAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2PodAppTests.swift; sourceTree = "<group>"; };
 		EE407D621D8A8D34001C7B2B /* OAuth2RetryHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2RetryHandler.swift; sourceTree = "<group>"; };
 		EE8BF6A71C0FA31A00394700 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
@@ -51,46 +36,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9B7A9099A1384CF8465042E /* Pods_OAuth2PodApp.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EE19A6AB1B4A569B00A406FD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				117FF70E737AEA8C374E77F4 /* Pods_OAuth2PodApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B0807DB8BC3A25775EBCC67 /* Pods */ = {
+		2FD9A99F2A58FBC1C2B8FFC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4CA75B2738619F1E02D977DC /* Pods-OAuth2PodApp.debug.xcconfig */,
-				1F86ABA23F347C436EA25FF3 /* Pods-OAuth2PodApp.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		E117B451BF174F0E4B50DD46 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				491CC453DFC2EB695715DFE4 /* Pods_OAuth2PodApp.framework */,
-				910FE77F2152631A4C2C25AD /* Pods_OAuth2PodAppTests.framework */,
+				37AF06CF206D06D92395AE25 /* Pods_OAuth2PodApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0A38E055F5A117D4A59E270 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FE0B2FF40E1A06672755E48 /* Pods-OAuth2PodApp.debug.xcconfig */,
+				DD9BA633ABF221889A7A6600 /* Pods-OAuth2PodApp.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		EE19A6901B4A569B00A406FD = {
 			isa = PBXGroup;
 			children = (
 				EE19A69B1B4A569B00A406FD /* OAuth2PodApp */,
-				EE19A6B11B4A569B00A406FD /* OAuth2PodAppTests */,
 				EE19A69A1B4A569B00A406FD /* Products */,
-				4B0807DB8BC3A25775EBCC67 /* Pods */,
-				E117B451BF174F0E4B50DD46 /* Frameworks */,
+				E0A38E055F5A117D4A59E270 /* Pods */,
+				2FD9A99F2A58FBC1C2B8FFC2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				EE19A6991B4A569B00A406FD /* OAuth2PodApp.app */,
-				EE19A6AE1B4A569B00A406FD /* OAuth2PodAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,23 +101,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		EE19A6B11B4A569B00A406FD /* OAuth2PodAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				EE19A6B41B4A569B00A406FD /* OAuth2PodAppTests.swift */,
-				EE19A6B21B4A569B00A406FD /* Supporting Files */,
-			);
-			path = OAuth2PodAppTests;
-			sourceTree = "<group>";
-		};
-		EE19A6B21B4A569B00A406FD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				EE19A6B31B4A569B00A406FD /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,12 +108,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE19A6B81B4A569B00A406FD /* Build configuration list for PBXNativeTarget "OAuth2PodApp" */;
 			buildPhases = (
-				E1A649C1C022936BCDB88F83 /* [CP] Check Pods Manifest.lock */,
+				6655C3C844DBBA76BD3E3D38 /* [CP] Check Pods Manifest.lock */,
 				EE19A6951B4A569B00A406FD /* Sources */,
 				EE19A6961B4A569B00A406FD /* Frameworks */,
 				EE19A6971B4A569B00A406FD /* Resources */,
-				8EFC75D3B113D5A2B002CC40 /* [CP] Embed Pods Frameworks */,
-				3FA2F11F55209BE2DC5E8D71 /* [CP] Copy Pods Resources */,
+				48F28D19C5D776104F638418 /* [CP] Embed Pods Frameworks */,
+				43C8368B4A9BF20819BD169E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -165,24 +123,6 @@
 			productName = OAuth2PodApp;
 			productReference = EE19A6991B4A569B00A406FD /* OAuth2PodApp.app */;
 			productType = "com.apple.product-type.application";
-		};
-		EE19A6AD1B4A569B00A406FD /* OAuth2PodAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EE19A6BB1B4A569B00A406FD /* Build configuration list for PBXNativeTarget "OAuth2PodAppTests" */;
-			buildPhases = (
-				EE19A6AA1B4A569B00A406FD /* Sources */,
-				EE19A6AB1B4A569B00A406FD /* Frameworks */,
-				EE19A6AC1B4A569B00A406FD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EE19A6B01B4A569B00A406FD /* PBXTargetDependency */,
-			);
-			name = OAuth2PodAppTests;
-			productName = OAuth2PodAppTests;
-			productReference = EE19A6AE1B4A569B00A406FD /* OAuth2PodAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -198,11 +138,6 @@
 					EE19A6981B4A569B00A406FD = {
 						CreatedOnToolsVersion = 6.4;
 						LastSwiftMigration = 0800;
-					};
-					EE19A6AD1B4A569B00A406FD = {
-						CreatedOnToolsVersion = 6.4;
-						LastSwiftMigration = 0800;
-						TestTargetID = EE19A6981B4A569B00A406FD;
 					};
 				};
 			};
@@ -220,7 +155,6 @@
 			projectRoot = "";
 			targets = (
 				EE19A6981B4A569B00A406FD /* OAuth2PodApp */,
-				EE19A6AD1B4A569B00A406FD /* OAuth2PodAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,17 +170,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE19A6AC1B4A569B00A406FD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3FA2F11F55209BE2DC5E8D71 /* [CP] Copy Pods Resources */ = {
+		43C8368B4A9BF20819BD169E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -261,7 +188,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2PodApp/Pods-OAuth2PodApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8EFC75D3B113D5A2B002CC40 /* [CP] Embed Pods Frameworks */ = {
+		48F28D19C5D776104F638418 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -276,7 +203,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2PodApp/Pods-OAuth2PodApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E1A649C1C022936BCDB88F83 /* [CP] Check Pods Manifest.lock */ = {
+		6655C3C844DBBA76BD3E3D38 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -304,23 +231,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EE19A6AA1B4A569B00A406FD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE19A6B51B4A569B00A406FD /* OAuth2PodAppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		EE19A6B01B4A569B00A406FD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EE19A6981B4A569B00A406FD /* OAuth2PodApp */;
-			targetProxy = EE19A6AF1B4A569B00A406FD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EE19A6A21B4A569B00A406FD /* Main.storyboard */ = {
@@ -431,7 +342,7 @@
 		};
 		EE19A6B91B4A569B00A406FD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CA75B2738619F1E02D977DC /* Pods-OAuth2PodApp.debug.xcconfig */;
+			baseConfigurationReference = 7FE0B2FF40E1A06672755E48 /* Pods-OAuth2PodApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OAuth2PodApp/Info.plist;
@@ -444,7 +355,7 @@
 		};
 		EE19A6BA1B4A569B00A406FD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F86ABA23F347C436EA25FF3 /* Pods-OAuth2PodApp.release.xcconfig */;
+			baseConfigurationReference = DD9BA633ABF221889A7A6600 /* Pods-OAuth2PodApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OAuth2PodApp/Info.plist;
@@ -452,44 +363,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		EE19A6BC1B4A569B00A406FD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = OAuth2PodAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuth2PodApp.app/OAuth2PodApp";
-			};
-			name = Debug;
-		};
-		EE19A6BD1B4A569B00A406FD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = OAuth2PodAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuth2PodApp.app/OAuth2PodApp";
 			};
 			name = Release;
 		};
@@ -510,15 +383,6 @@
 			buildConfigurations = (
 				EE19A6B91B4A569B00A406FD /* Debug */,
 				EE19A6BA1B4A569B00A406FD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EE19A6BB1B4A569B00A406FD /* Build configuration list for PBXNativeTarget "OAuth2PodAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EE19A6BC1B4A569B00A406FD /* Debug */,
-				EE19A6BD1B4A569B00A406FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

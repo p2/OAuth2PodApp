@@ -15,6 +15,8 @@ class ViewController: UIViewController {
 	
 	fileprivate var alamofireManager: SessionManager?
 	
+	var loader: OAuth2DataLoader?
+	
 	var oauth2 = OAuth2CodeGrant(settings: [
 		"client_id": "8ae913c685556e73a16f",                         // yes, this client-id and secret will work!
 		"client_secret": "60d81efcc5293fd1d096854f4eee0764edb2da5d",
@@ -52,9 +54,9 @@ class ViewController: UIViewController {
 				self.didGetUserdata(dict: json, loader: loader)
 			}
 			catch let error {
-			self.didCancelOrFail(error)
+				self.didCancelOrFail(error)
+			}
 		}
-	}
 	}
 	
 	@IBAction func signInSafari(_ sender: UIButton?) {
