@@ -140,7 +140,7 @@ class ViewController: UIViewController {
 	func requestJSON(path: String, callback: ((dict: NSDictionary?, error: ErrorType?) -> Void)) {
 		let baseURL = NSURL(string: "https://api.github.com")!
 		
-		request(baseURL.URLByAppendingPathComponent(path)) { data, error in
+		request(baseURL.URLByAppendingPathComponent(path)!) { data, error in
 			if let data = data {
 				do {
 					let dict = try NSJSONSerialization.JSONObjectWithData(data, options: []) as? NSDictionary

@@ -147,12 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE19A6B81B4A569B00A406FD /* Build configuration list for PBXNativeTarget "OAuth2PodApp" */;
 			buildPhases = (
-				E1A649C1C022936BCDB88F83 /* 📦 Check Pods Manifest.lock */,
+				E1A649C1C022936BCDB88F83 /* [CP] Check Pods Manifest.lock */,
 				EE19A6951B4A569B00A406FD /* Sources */,
 				EE19A6961B4A569B00A406FD /* Frameworks */,
 				EE19A6971B4A569B00A406FD /* Resources */,
-				8EFC75D3B113D5A2B002CC40 /* 📦 Embed Pods Frameworks */,
-				3FA2F11F55209BE2DC5E8D71 /* 📦 Copy Pods Resources */,
+				8EFC75D3B113D5A2B002CC40 /* [CP] Embed Pods Frameworks */,
+				3FA2F11F55209BE2DC5E8D71 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,12 +167,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE19A6BB1B4A569B00A406FD /* Build configuration list for PBXNativeTarget "OAuth2PodAppTests" */;
 			buildPhases = (
-				0F3408C026CD57286810FC4C /* 📦 Check Pods Manifest.lock */,
 				EE19A6AA1B4A569B00A406FD /* Sources */,
 				EE19A6AB1B4A569B00A406FD /* Frameworks */,
 				EE19A6AC1B4A569B00A406FD /* Resources */,
-				F95D72730B30E4D086E53FB6 /* 📦 Embed Pods Frameworks */,
-				2DD7EC7BD86F162C58E09129 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,9 +194,11 @@
 				TargetAttributes = {
 					EE19A6981B4A569B00A406FD = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 					};
 					EE19A6AD1B4A569B00A406FD = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 						TestTargetID = EE19A6981B4A569B00A406FD;
 					};
 				};
@@ -244,44 +243,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F3408C026CD57286810FC4C /* 📦 Check Pods Manifest.lock */ = {
+		3FA2F11F55209BE2DC5E8D71 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		2DD7EC7BD86F162C58E09129 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2PodAppTests/Pods-OAuth2PodAppTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3FA2F11F55209BE2DC5E8D71 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,14 +258,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2PodApp/Pods-OAuth2PodApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8EFC75D3B113D5A2B002CC40 /* 📦 Embed Pods Frameworks */ = {
+		8EFC75D3B113D5A2B002CC40 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,34 +273,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2PodApp/Pods-OAuth2PodApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E1A649C1C022936BCDB88F83 /* 📦 Check Pods Manifest.lock */ = {
+		E1A649C1C022936BCDB88F83 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F95D72730B30E4D086E53FB6 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OAuth2PodAppTests/Pods-OAuth2PodAppTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -475,6 +429,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -487,6 +442,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -506,6 +462,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuth2PodApp.app/OAuth2PodApp";
 			};
 			name = Debug;
@@ -522,6 +479,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OAuth2PodApp.app/OAuth2PodApp";
 			};
 			name = Release;
